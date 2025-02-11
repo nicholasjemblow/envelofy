@@ -1,0 +1,20 @@
+.main-layout {
+    width: 100%;
+    height: 100%;
+}
+
+.main-layout vaadin-drawer-toggle {
+    padding: var(--lumo-space-s);
+}
+
+.main-layout vaadin-side-nav-item {
+    padding: var(--lumo-space-s);
+}
+
+.main-layout .logo {
+    padding: var(--lumo-space-m);
+}
+
+.main-layout .header {
+    padding: 0 var(--lumo-space-m);
+}

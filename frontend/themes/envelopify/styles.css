@@ -1,0 +1,18 @@
+@import url('./main-layout.css');
+
+html {
+    --lumo-primary-color: #007AFF;
+    --lumo-primary-color-50pct: rgba(0, 122, 255, 0.5);
+    --lumo-primary-color-10pct: rgba(0, 122, 255, 0.1);
+    
+    /* Body text color */
+    --lumo-body-text-color: rgb(33, 33, 33);
+    
+    /* Secondary/muted text color */
+    --lumo-secondary-text-color: rgb(95, 95, 95);
+    
+    /* Border radiuses */
+    --lumo-border-radius-s: 4px;
+    --lumo-border-radius-m: 8px;
+    --lumo-border-radius-l: 12px;
+}
