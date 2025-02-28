@@ -16,88 +16,86 @@
  */
 
 
-import { LitElement, html, css } from 'lit';
 import * as echarts from 'echarts';
 
-class SpendingTrendsChart extends LitElement {
-    static properties = {
-        labels: { type: Array },
-        series: { type: Array },
-        envelopes: { type: Array }
-    };
-
+export default class SpendingTrendsChart extends HTMLElement {
     constructor() {
         super();
-        this.labels = [];
-        this.series = [];
-        this.envelopes = [];
+        this.attachShadow({ mode: 'open' });
+        this.chart = null;
     }
 
-    firstUpdated() {
-        this._renderChart();
+    connectedCallback() {
+        const chartDiv = document.createElement('div');
+        chartDiv.style.width = '100%';
+        chartDiv.style.height = '100%';
+        this.shadowRoot.appendChild(chartDiv);
+        
+        this.chart = echarts.init(chartDiv);
+        this._updateChart();
     }
 
-    updated(changedProperties) {
-        if (changedProperties.has('labels') || 
-            changedProperties.has('series') || 
-            changedProperties.has('envelopes')) {
-            this._renderChart();
+    disconnectedCallback() {
+        if (this.chart) {
+            this.chart.dispose();
+            this.chart = null;
         }
     }
 
-    _renderChart() {
-        if (!this.shadowRoot) return;
+    _updateChart() {
+        if (!this.chart) return;
 
-        let container = this.shadowRoot.getElementById('chart');
-        if (!container) return;
+        try {
+            const labels = JSON.parse(this.labels || '[]');
+            const series = JSON.parse(this.series || '[]');
 
-        let chart = echarts.init(container);
-        
-        // Use a pleasant color palette
-        const colors = [
-            '#5470c6', '#91cc75', '#fac858', '#ee6666',
-            '#73c0de', '#3ba272', '#fc8452', '#9a60b4'
-        ];
-
-        chart.setOption({
-            color: colors,
-            tooltip: {
-                trigger: 'axis',
-                axisPointer: {
-                    type: 'shadow'
-                }
-            },
-            legend: {
-                data: this.envelopes
-            },
-            grid: {
-                left: '3%',
-                right: '4%',
-                bottom: '3%',
-                containLabel: true
-            },
-            xAxis: {
-                type: 'category',
-                data: this.labels
-            },
-            yAxis: {
-                type: 'value',
-                axisLabel: {
-                    formatter: (value) => '$' + value.toFixed(2)
-                }
-            },
-            series: this.series
-        });
-
-        // Handle resize
-        window.addEventListener('resize', () => {
-            chart.resize();
-        });
+            const option = {
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: series.map(s => s.name),
+                    top: 'top'
+                },
+                xAxis: {
+                    type: 'category',
+                    data: labels
+                },
+                yAxis: {
+                    type: 'value',
+                    axisLabel: {
+                        formatter: '${value}'
+                    }
+                },
+                series: series.map(s => ({
+                    ...s,
+                    type: 'bar',
+                    stack: 'total'
+                }))
+            };
+            
+            this.chart.setOption(option);
+        } catch (e) {
+            console.error('Error updating chart:', e);
+        }
     }
 
-    render() {
-        return html`<div id="chart" style="width:100%; height:100%;"></div>`;
+    set labels(value) {
+        this._labels = value;
+        this._updateChart();
+    }
+
+    get labels() {
+        return this._labels;
+    }
+
+    set series(value) {
+        this._series = value;
+        this._updateChart();
+    }
+
+    get series() {
+        return this._series;
     }
 }
-
 customElements.define('spending-trends-chart', SpendingTrendsChart);

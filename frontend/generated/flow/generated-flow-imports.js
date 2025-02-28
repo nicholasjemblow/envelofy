@@ -82,7 +82,13 @@ import '@vaadin/vaadin-lumo-styles/sizing.js';
 import '@vaadin/vaadin-lumo-styles/spacing.js';
 import '@vaadin/vaadin-lumo-styles/style.js';
 import '@vaadin/vaadin-lumo-styles/vaadin-iconset.js';
+import 'Frontend/account-balance-chart.js';
+import 'Frontend/data-table.js';
+import 'Frontend/ml-spending-prediction-chart.js';
+import 'Frontend/spending-category-chart.js';
 import 'Frontend/spending-trends-chart.js';
+import 'Frontend/spending-trends-chart-accounts.js';
+import 'Frontend/unusual-spending-chart.js';
 const loadOnDemand = (key) => { return Promise.resolve(0); }
 window.Vaadin = window.Vaadin || {};
 window.Vaadin.Flow = window.Vaadin.Flow || {};
