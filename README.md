@@ -1,6 +1,6 @@
 # Envelofy
 
-Envelofy is a personal finance management application designed to help you budget and track your expenses using the envelope budgeting method. With this app, you can categorize your spending, manage multiple accounts, and gain valuable insights into your financial habits through machine learning-powered analytics. Built with a modern tech stack, Envelofy provides a user-friendly interface and robust features to keep your finances in check. Envelofy also features an integrated LLM (Large Language Model) assistant, configurable to use providers like Groq, OpenAI, Ollama, or JLlama, to provide real-time non-financial advice, answer questions, and assist with managing your budget.****
+Envelofy is a personal finance management application designed to help you budget and track your expenses using the envelope budgeting method. With this app, you can categorize your spending, manage multiple accounts, and gain valuable insights into your financial habits through machine learning-powered analytics. Built with a modern tech stack, Envelofy provides a user-friendly interface and robust features to keep your finances in check. Envelofy also features an integrated LLM (Large Language Model) assistant, configurable to use providers like Groq, OpenAI, Ollama, or JLlama, to provide real-time non-financial advice, answer questions, and assist with managing your budget.
 
 ## Key Features
 
