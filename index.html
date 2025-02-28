@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Envelofy - Your Personal Finance Companion</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            color: #e2e8f0; /* Light gray text for readability */
+            background: linear-gradient(to bottom, #2d3748, #1a202c); /* Dark theme gradient */
+        }
+        header {
+            background: linear-gradient(135deg, #4a5568, #718096); /* Darker gradient for header */
+            color: #e2e8f0;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            margin: 0;
+        }
+        header p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 1rem auto;
+            color: #a0aec0; /* Secondary text color */
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        .feature-card {
+            background: #4a5568; /* Card background */
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Dark theme shadow */
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .feature-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4); /* Hover shadow */
+        }
+        .feature-card h3 {
+            color: #48bb78; /* Positive balance color for emphasis */
+            margin-top: 0;
+        }
+        .feature-card p {
+            color: #a0aec0; /* Secondary text color */
+        }
+        .btn {
+            display: inline-block;
+            padding: 0.75rem 1.5rem;
+            background-color: #48bb78; /* Positive balance green */
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #38a169; /* Darker green on hover */
+        }
+        .section {
+            margin: 3rem 0;
+        }
+        .section h2 {
+            color: #48bb78; /* Green for headings */
+            border-bottom: 2px solid #48bb78;
+            display: inline-block;
+            padding-bottom: 0.5rem;
+        }
+        pre {
+            background: #2d3748; /* Darker code background */
+            color: #e2e8f0;
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        a {
+            color: #00d4ff; /* Bright cyan for links */
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background: #1a202c; /* Dark footer */
+            color: #a0aec0;
+        }
+        footer a {
+            color: #00d4ff;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Envelofy</h1>
+        <p>Your Personal Finance Companion - Budget, Track, and Optimize with Ease</p>
+        <a href="https://github.com/nicholasjemblow/envelofy" class="btn">Get Started on GitHub</a>
+    </header>
+
+    <div class="container">
+        <section class="section">
+            <h2>About Envelofy</h2>
+            <p>
+                Envelofy is a personal finance management tool built around the envelope budgeting method. 
+                Categorize your spending, manage accounts, and uncover insights with machine learning analytics. 
+                Featuring a glitchy yet innovative LLM assistant (supporting Groq, OpenAI, Ollama, or JLlama), 
+                Envelofy offers real-time non-financial advice to help you stay on top of your budget.
+            </p>
+        </section>
+
+        <section class="section">
+            <h2>Key Features</h2>
+            <div class="features">
+                <div class="feature-card">
+                    <h3>Envelope Budgeting</h3>
+                    <p>Create and manage budget envelopes to track spending by category.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Subscription Finder</h3>
+                    <p>Automatically detect and manage recurring subscriptions in your transactions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Smart Insights</h3>
+                    <p>Get AI-driven analytics for unusual spending and budget predictions.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>LLM Assistant</h3>
+                    <p>A configurable assistant offering non-financial guidance (warning: glitchy!).</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Account Management</h3>
+                    <p>Monitor all your financial accounts in one unified dashboard.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Data Import</h3>
+                    <p>Easily import transactions from CSV files for quick setup.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2>Get Started</h2>
+            <p>To set up Envelofy, you’ll need JDK 17+, Maven, and a web browser. Follow these steps:</p>
+            <pre>
+git clone https://github.com/nicholasjemblow/envelofy.git
+cd envelofy
+mvn clean package
+java -jar target/envelofy-1.0.0.jar
+            </pre>
+            <p>Then, visit <a href="http://localhost:8081">http://localhost:8081</a> in your browser.</p>
+        </section>
+
+        <section class="section">
+            <h2>Configure Your LLM Assistant</h2>
+            <p>
+                Customize the LLM assistant in the app’s Settings screen. Choose from Groq, OpenAI, Ollama, 
+                or JLlama, and input your API keys or endpoints as needed.
+            </p>
+        </section>
+    </div>
+
+    <footer>
+        <p>
+            Envelofy is open-source under the GNU GPL v3.0. 
+            <a href="https://github.com/nicholasjemblow/envelofy">Contribute on GitHub</a> | 
+            <a href="https://github.com/nicholasjemblow/envelofy/issues">Report an Issue</a>
+        </p>
+    </footer>
+</body>
+</html>
