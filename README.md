@@ -70,31 +70,8 @@ The integrated LLM assistant is powered by the `LLMService`, which supports mult
 - **Ollama**: Open-source, local LLM hosting (requires local setup - can be good if you have decent gpu).
 - **JLlama**: Java-based LLM integration (requires minimal configuration - slowest option).
 
-Example configuration for Groq:
-```
-llm.provider=groq
-llm.groq.api-key=your-groq-api-key
-```
+**NB Configuration of LLM Service is best done inside of the application settings screen**
 
-For OpenAI:
-```
-llm.provider=openai
-llm.openai.api-key=your-openai-api-key
-```
-
-For Ollama (assuming a local instance):
-```
-llm.provider=ollama
-llm.ollama.endpoint=http://localhost:11434
-```
-
-For JLlama:
-```
-llm.provider=jllama
-llm.jllama.model-path=/path/to/jllama/model
-```
-
-Refer to the `LLMService` documentation in the codebase for detailed setup instructions for each provider.
 
 ## Technology Stack
 
