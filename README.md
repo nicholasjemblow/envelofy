@@ -63,14 +63,20 @@ spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 To explore the H2 database, access the H2 Console at `http://localhost:8081/h2-console` (enabled by default).
 
 ### LLM Configuration
-The integrated LLM assistant is powered by the `LLMService`, which supports multiple providers. To configure your preferred LLM, update the settings in `application.properties` or via environment variables. Supported providers include:
+The integrated LLM assistant is powered by the `LLMService`, which supports multiple providers: **Groq**, **OpenAI**, **Ollama**, and **JLlama**. Configuration is handled directly within the application via the **Settings screen**, where you can:
 
-- **Groq**: Fast and efficient inference (requires API key - absolutely fastest tokens per second).
-- **OpenAI**: Industry-standard LLM capabilities (requires API key - most intelligent models available).
-- **Ollama**: Open-source, local LLM hosting (requires local setup - can be good if you have decent gpu).
-- **JLlama**: Java-based LLM integration (requires minimal configuration - slowest option).
+- Select your preferred LLM provider.
+- Enter API keys (e.g., for Groq or OpenAI).
+- Specify endpoints (e.g., for Ollama local instances) or model paths (e.g., for JLlama).
+- Adjust additional LLM-specific settings as needed.
 
-**NB Configuration of LLM Service is best done inside of the application settings screen**
+Supported providers:
+- **Groq**: Fast and efficient inference (requires an API key).
+- **OpenAI**: Industry-standard LLM capabilities (requires an API key).
+- **Ollama**: Open-source, local LLM hosting (requires a running local instance).
+- **JLlama**: Java-based LLM integration (requires model file configuration).
+
+Once configured in the settings screen, the assistant will use your chosen provider to deliver real-time non-financial advice and support. Refer to the in-app documentation or tooltips in the settings interface for detailed guidance.
 
 
 ## Technology Stack
