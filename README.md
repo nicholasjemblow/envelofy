@@ -36,12 +36,12 @@ Follow these steps to set up and run Envelofy:
 
 3. **Build the Project**:
    ```
-   mvn clean package
+   JAVA_HOME=/path/to/jdk/21 mvn --no-transfer-progress -Pproduction clean install
    ```
 
 4. **Run the Application**:
    ```
-   java -jar target/envelofy-1.0.0.jar
+   JAVA_HOME=/path/to/jdk/21 mvn   spring-boot:run   -Dspring-boot.run.jvmArguments="--add-modules jdk.incubator.vector --enable-preview"   --no-transfer-progress   -Pproduction
    ```
 
 5. **Access the Application**:
