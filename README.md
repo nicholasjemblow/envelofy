@@ -45,7 +45,7 @@ Follow these steps to set up and run Envelofy:
    ```
 
 5. **Access the Application**:
-   Open your web browser and go to `http://localhost:8081`.
+   Open your web browser and go to `http://localhost:8081/login`.
 
 ## Configuration
 
